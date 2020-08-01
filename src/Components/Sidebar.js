@@ -9,8 +9,7 @@ function Sidebar(props) {
             <Nav.Item>
                 <h3>Browse Collection</h3>
                 
-                <Nav.Link>
-                    Random Object</Nav.Link>
+                <Nav.Link as={Link} to="/objects/random" onClick={() => props.setId()}>Random Object</Nav.Link>
                 <Nav.Link as={Link} to="/objects/department" onClick={() => props.selectList("department")}>Departments</Nav.Link>
                 <Nav.Link as={Link} to="/objects/medium" onClick={() => props.selectList("medium")}>Media</Nav.Link>
                 <Nav.Link as={Link} to="/objects/category" onClick={() => props.selectList("category")}>Categories</Nav.Link>

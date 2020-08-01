@@ -8,7 +8,7 @@ import Sidebar from './Components/Sidebar'
 import Object from './Components/Object'
 import Home from './Components/Home'
 import {Route, Link} from 'react-router-dom'
-import List from './Components/List'
+import FieldList from './Components/FieldList'
 
 let url = "https://met-museum-api.herokuapp.com"
 
@@ -16,38 +16,72 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      navSelection: ""
+      browseSelection: ""
+      ,dropdownSelection: ""
+      ,formInput: ""
       ,objectId: ""
     }
   }
 
   selectList = listName => {
     this.setState({
-      navSelection: listName
+      browseSelection: listName
     })
+  }
+
+  setDropdown = selection =>{
+    this.setState({
+      dropdownSelection: selection
+    })
+  }
+
+  setFormSelection = input =>{
+    this.setState({
+      formInput: input
+    })    
+  }
+
+  setObjectId = id => {
+    this.setState({
+      objectId: id
+    })
+  }
+
+  fetchRandomId = () => {
+    fetch(`${url}/objects/random`)
+      .then(res => res.json())
+      .then(res =>{
+        this.setState({
+          objectId: res._id
+        })
+        
+      })
   }
 
   render() {
   return (
     <Container fluid >
       <Row className="App-header">
-        <TopNav />
+        <Col>
+          <TopNav dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
+        </Col>
       </Row>
       <Row>
         <Col xs="2" id="sidebar">
-        <Sidebar selectList={this.selectList} />
+        <Sidebar selectList={this.selectList} setId={this.fetchRandomId} />
         </Col>
         <Col >
           <Route path="/"
             component={Home}
             exact />
-          <Route path ={`/objects/${this.state.navSelection}`} 
-            render={() => <List listName={this.state.navSelection} url={url} />}
-          />
-          {/* <Route path={`/objects/${this.state.objectId}`} 
-            render={() => <Object id={this.state.objectId} />} 
+          <Route path ={`/objects/${this.state.browseSelection}`} 
+            render={() => <FieldList listName={this.state.browseSelection} url={url} />}
             exact
-          /> */}
+          />
+          <Route path="/objects/random"
+            render={() => <Object url={url} id={this.state.objectId} />} 
+            exact
+          />
         </Col>
       </Row>
     </Container>
