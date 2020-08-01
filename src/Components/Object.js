@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { json } from 'body-parser'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Badge } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
+import ImageGallery from './ImageGallery'
 
 
 export class Object extends Component {
@@ -33,7 +34,7 @@ export class Object extends Component {
         
     }
 
-    fetchRandom = () => {
+    fetchObject = () => {
                 fetch(`${this.props.url}/objects/id/${this.props.id}`)
                     .then(res => res.json())
                     .then(res =>{
@@ -61,16 +62,17 @@ export class Object extends Component {
                             ,ready: true
                         })
                     })
+
          
       }
 
     componentDidMount = () =>{
-        this.fetchRandom() 
+        this.fetchObject() 
     }
 
     componentDidUpdate = props => {
         if (props.id !== this.props.id){
-            this.fetchRandom()
+            this.fetchObject()
         }
     }
     
@@ -78,11 +80,43 @@ export class Object extends Component {
     render() {
         if (this.state.ready == true){
             return (
-                <Container>
-                    <Row>
-                        <Image src={this.state.primaryImage} />
+                <Container className="justify-content-center">
+                    <Row className="justify-content-center">
+                            <h2>{this.state.title}  </h2>{this.state.isPublicDomain == true ? <h4><Badge variant="primary">  Public Domain</Badge></h4> : null}
                     </Row>
-                    <Row><h2>{this.state.title}</h2></Row>
+                    <Row sm>
+                    {this.state.featured == true ? <h5><Badge variant="primary">  Featured</Badge></h5> : null}
+                        <Col xs="4" />
+                        <Col>
+                            <Image fluid src={this.state.primaryImage} />
+                        </Col>
+                        <Col xs="4" />
+                    </Row>
+                    
+                    <Row className="justify-content-center">
+                       {this.state.dimensions !== "" && this.state.dimensions !== undefined ? <h5>Dimensions: {this.state.dimensions}</h5> : null} 
+                    </Row>
+                    <Row className="justify-content-center">
+                       {this.state.culture !== "" && this.state.culture !== undefined ? <h4>Culture: {this.state.culture}</h4> : null} 
+                    </Row>
+                    <Row className="justify-content-center">
+                       {this.state.department !== "" && this.state.department !== undefined ? <h4>Department: {this.state.department}</h4> : null} 
+                    </Row>
+                    <Row className="justify-content-center">
+                       {this.state.medium !== "" && this.state.medium !== undefined ? <h4>Medium: {this.state.medium}</h4> : null} 
+                    </Row>
+                    <Row className="justify-content-center">
+                       {this.state.category !== "" && this.state.category !== undefined ? <h4>Category: {this.state.category}</h4> : null} 
+                    </Row>
+                    <Row className="justify-content-center">
+                       {this.state.category !== "" && this.state.dateCreated !== undefined ? <h5>Date Created: {this.state.dateCreated}</h5> : null} 
+                       {this.state.period !== "" && this.state.period !== undefined ? <h5>Period: {this.state.period}</h5> : null} 
+                       {this.state.country !== "" && this.state.country !== undefined ? <h5>Country of Origin: {this.state.country}</h5> : null} 
+                    </Row>
+                    <Row className="justfiy-content-center">
+                    {this.state.additionalImages !== "" && this.state.additionalImages !== undefined ?<ImageGallery images={this.state.additionalImages} /> : null }
+                    </Row>
+
 
                 </Container>
             )

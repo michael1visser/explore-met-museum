@@ -9,6 +9,7 @@ import Object from './Components/Object'
 import Home from './Components/Home'
 import {Route, Link} from 'react-router-dom'
 import FieldList from './Components/FieldList'
+import ObjectList from './Components/ObjectList'
 
 let url = "https://met-museum-api.herokuapp.com"
 
@@ -37,7 +38,8 @@ class App extends Component {
 
   setFormSelection = input =>{
     this.setState({
-      formInput: input
+      dropdownSelection: input.dropdown
+      ,formInput: input.input
     })    
   }
 
@@ -58,12 +60,12 @@ class App extends Component {
       })
   }
 
-  render() {
+  render(routerProps) {
   return (
     <Container fluid >
       <Row className="App-header">
         <Col>
-          <TopNav dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
+          <TopNav dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} /* routerProps={routerProps} */ />
         </Col>
       </Row>
       <Row>
@@ -80,6 +82,10 @@ class App extends Component {
           />
           <Route path="/objects/random"
             render={() => <Object url={url} id={this.state.objectId} />} 
+            exact
+          />
+          <Route path={`/objects/id/${this.state.formInput}`}
+            render={() => <Object url={url} id={this.state.formInput} />} 
             exact
           />
         </Col>
