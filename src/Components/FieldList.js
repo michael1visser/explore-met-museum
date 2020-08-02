@@ -35,8 +35,7 @@ export class List extends Component {
     componentDidUpdate(props){
    
         if (props.listName !== this.props.listName){
-            console.log(props.listName)
-            console.log(this.props.listName)
+        
             fetch(`${this.url}/objects/${this.props.listName}`)
                 .then(res => res.json())
                 .then( res => {
@@ -62,8 +61,10 @@ export class List extends Component {
 
     render() {  
         return (
-            <div>
+            <div style={{overflow: "scroll",paddingLeft: 20}}>
+                <ul style={{listStyle: "none", fontSize: "20px", paddingTop: 20}}>
                 {this.setList()}
+                </ul>
             </div>
         )
     }

@@ -83,17 +83,17 @@ class App extends Component {
   return (
     <Container fluid style={{ padding: 0 }} >
      
-      <Row noGutters className="row-bottom-margin"> 
+      <Row style={{height: "15%"}} noGutters className="row-bottom-margin"> 
         <Col row-bottom-margin="true" >
           <Navbar dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
         </Col>
       </Row>
-      <Row noGutters >
+      <Row style={{height: "85%"}} noGutters >
         <Col xs="2" >
         <Sidebar selectList={this.selectList} setId={this.fetchRandomId} 
         />
-        </Col>
-        <Col >
+        </Col >
+        <Col style={{height: "100%" ,overflow: "scroll", borderTop: "12px groove #b63d37", borderLeft: "12px ridge #b63d37", outlineTop: "#FFFFFF"}}>
           <Route path="/"
             component={Home}
             exact />

@@ -34,7 +34,7 @@ export class SearchForm extends Component {
     render() {
         return (
             <Form inline onSubmit={this.submitForm}>
-                <Form.Control size="sm" as="select" title="Select an area to search" id="basic-nav-dropdown" onChange={this.dropdownChange}>
+                <Form.Control style={{margin: 10}} size="sm" as="select" title="Select an area to search" id="basic-nav-dropdown" onChange={this.dropdownChange}>
                     <option>Select an area to Search</option>
                     <option value="id">Object ID</option>
                     <option value="department">Departments</option>
@@ -42,8 +42,8 @@ export class SearchForm extends Component {
                     <option value="category">Categories</option>
                     <option value="culture">Cultures</option>
                 </Form.Control>
-                <Form.Control size="sm" type="input" onChange={this.inputChange} />
-                <Button size="sm" type="submit" >Search</Button>
+                <Form.Control style={{margin: 5} } size="sm" type="input" onChange={this.inputChange} />
+                <Button style={{margin: 10, backgroundColor: "#f5eba5", color: "#000000", border: "none"}} size="sm" type="submit" >Search</Button>
             </Form>
         )
     }

@@ -9,16 +9,8 @@ function TopNav(props){
 
 
     return(
-            <Navbar className="justify-content-between">
-                <style type="text/css">
-                    {`
-                    .navbar {
-                        background-color: #B85954;
-                        margin: 0, auto;
-                    }
-                    `}
-                </style>
-                <Navbar.Brand><h2>Met Museum</h2></Navbar.Brand>
+            <Navbar style={{backgroundColor: "#B85954", height: "100%"}} className="justify-content-between">
+                <Navbar.Brand style={{padding:20, color: "#f5eba5"}}><h1>Metropolitan Museum of Art</h1></Navbar.Brand>
                 
                 <SearchForm sendInput={props.sendInput}/>
                 

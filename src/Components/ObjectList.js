@@ -8,17 +8,20 @@ export class ObjectList extends Component {
             objects: []
             ,ready: false
         }
+        this.input = ""
+        this.dropdown = ""
     }
 
     fetchData = () => {
-        fetch(`${this.props.url}/objects/${this.props.dropdown}/${this.props.input}`)
+        fetch(`${this.props.url}/objects/${this.dropdown}/${this.input}`)
             .then(res => res.json())
             .then(res => {
                 this.setState({
                     objects: res
                     ,ready: true
-                })
+                }/* , () => {this.displayObjectList()} */)
             })
+
     }
 
     displayObjectList = () =>{
@@ -30,15 +33,16 @@ export class ObjectList extends Component {
         return list
     }
     componentDidMount = () =>{
-        let input = ""
-        let dropdown = ""
+        //let objectList = ""
         if (this.props.input !== ""){
-            input = this.props.input
-            dropdown = this.props.dropdown
+            this.input = this.props.input
+            this.dropdown = this.props.dropdown
+            
         }
         else {
-            input = localStorage.getItem("formInput")
-            dropdown = localStorage.getItem("dropdown")
+            this.input = localStorage.getItem("formInput")
+            this.dropdown = localStorage.getItem("dropdown")
+            //objectList = localStorage.getItem("objectList")
         }
         this.fetchData()
         localStorage.setItem("formInput", `${this.props.input}`)
@@ -58,7 +62,7 @@ export class ObjectList extends Component {
         if (this.state.ready === true){
         return (
             <div>
-                <ul>
+                <ul style={{listStyle: "none", fontSize: "20px", paddingTop: 20}} >
                     {this.displayObjectList()}
                 </ul>
             </div>

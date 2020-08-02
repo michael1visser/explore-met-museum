@@ -127,7 +127,7 @@ export class Object extends Component {
     render() {
         if (this.state.ready == true){
             return (
-                <Container className="justify-content-center" style={{marginTop: 20, height: "90vh", overflow: "scroll"}}>
+                <Container className="justify-content-center" style={{marginTop: 20, marginLeft: 20}}>
                     <Row className="justify-content-center">
                         <Col>
                             <Row className="justify-content-center">                        
@@ -171,15 +171,15 @@ export class Object extends Component {
                         <Col xs="4">
                             <Row className="justify-content-center">
                                 {this.state.artist !== "" && this.state.artist !== undefined ? 
-                                    <Accordion>
-                                        <Card>
-                                            <Card.Header>
-                                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
+                                    <Accordion >
+                                        <Card style={{backgroundColor: "#B85954"}}>
+                                            <Card.Header >
+                                                <Accordion.Toggle style={{backgroundColor: "#f5eba5"}} as={Card.Header} variant="link" eventKey="0">
                                                 <h5>Artist: {this.state.artist}</h5>
                                                 </Accordion.Toggle >
                                             </Card.Header>        
                                             <Accordion.Collapse eventKey="0">
-                                                <Card.Body>{this.fetchArtistInfo()}</Card.Body>
+                                                <Card.Body style={{color: "#f5eba5"}}>{this.fetchArtistInfo()}</Card.Body>
                                             </Accordion.Collapse>                        
                                         </Card>
                                     </Accordion>

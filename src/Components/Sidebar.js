@@ -4,15 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 
 function Sidebar(props) {
     return (
-        <Nav style={{ paddingLeft: 10, paddingRight: 10 }}>
-            <style type="text/css">
-                    {`
-                    .nav {
-                        background-color: #B85954;
-                        margin: 0, auto;
-                    }
-                    `}
-                </style>
+        <Nav style={{ paddingLeft: 10, paddingRight: 10, backgroundColor: "#B85954", height: "100%" }}>
             <Nav.Item>
                 <h4 style={{ textDecoration: "underline" }}>Browse Collection</h4>
                 
