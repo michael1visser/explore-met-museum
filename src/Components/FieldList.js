@@ -12,8 +12,6 @@ export class List extends Component {
 
     componentDidMount(){
         let listName = ""
-        let path = window.location.pathname
-        //console.log(path)
         if (this.props.listName !== ""){
             listName = this.props.listName
         }
@@ -39,7 +37,6 @@ export class List extends Component {
             fetch(`${this.url}/objects/${this.props.listName}`)
                 .then(res => res.json())
                 .then( res => {
-                    console.log(res)
                     this.setState({
                         items: res
                     })
@@ -52,9 +49,11 @@ export class List extends Component {
 
     setList(){
         let listItems = this.state.items.map((val, idx) => {
-            if (val != ""){
-            return <li key={idx}>{val}</li>
+            let newItem
+            if (val !== ""){
+                newItem = <li key={idx}>{val}</li>
             }
+            return newItem
         })
         return listItems
     }

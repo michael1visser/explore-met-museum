@@ -51,7 +51,6 @@ export class ObjectForm extends Component {
     }
 
     inputChange = e =>{
-        //console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -71,7 +70,6 @@ export class ObjectForm extends Component {
                 let trimmed = val.trim()
                 return trimmed
             })
-            console.log(finalArray)
              this.setState({
                  additionalImages: finalArray
              }, () => {this.submitForm(e)})
@@ -79,7 +77,6 @@ export class ObjectForm extends Component {
 
     }
     submitForm = (e) =>{
-        console.log(this.state.additionalImages)
         
         let url = ""
         if (this.props.method === "POST"){
@@ -97,7 +94,6 @@ export class ObjectForm extends Component {
         fetch(url, options)
             .then(res => res.json())
             .then(res =>{
-                //console.log(res)
                 this.props.onSuccess({
                     newId: res._id
                     ,success: true

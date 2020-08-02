@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { json } from 'body-parser'
 import { Container, Row, Col, Badge, Card, Accordion } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import ImageGallery from './ImageGallery'
-import Button from 'react-bootstrap/Button'
 
 
 export class Object extends Component {
@@ -39,7 +37,6 @@ export class Object extends Component {
                 fetch(`${this.props.url}/objects/id/${id}`)
                     .then(res => res.json())
                     .then(res =>{
-                        console.log(res)
                         this.setState({
                             id: res._id
                             ,featured: res.featured
@@ -125,7 +122,7 @@ export class Object extends Component {
     
     
     render() {
-        if (this.state.ready == true){
+        if (this.state.ready === true){
             return (
                 <Container className="justify-content-center" style={{marginTop: 20, marginLeft: 20}}>
                     <Row className="justify-content-center">
@@ -134,8 +131,8 @@ export class Object extends Component {
                                 <h3>{this.state.title}</h3>
                             </Row>
                             <Row className="justify-content-center">
-                                {this.state.isPublicDomain == true ? <h4><Badge variant="primary">  Public Domain</Badge></h4> : null}
-                                {this.state.featured == true ? <h5><Badge variant="primary">  Featured</Badge></h5> : null}
+                                {this.state.isPublicDomain === true ? <h4><Badge variant="primary">  Public Domain</Badge></h4> : null}
+                                {this.state.featured === true ? <h5><Badge variant="primary">  Featured</Badge></h5> : null}
                             </Row>
                             <Row>
                                 <Col xs="4" />

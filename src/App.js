@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar'
 import Sidebar from './Components/Sidebar'
 import Object from './Components/Object'
 import Home from './Components/Home'
-import {Route, Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import FieldList from './Components/FieldList'
 import ObjectList from './Components/ObjectList'
 import SubmissionForm from './Components/SubmissionForm';
@@ -22,18 +22,37 @@ class App extends Component {
       ,dropdownSelection: ""
       ,formInput: ""
       ,objectId: ""
-      ,path: ""
     }
+    this.path = window.location.pathname
+    
   }
 
+  setStateFromUrl = () =>{
+    let pathArray = this.path.split('/')
+    pathArray = pathArray.filter(val => (val !== ""))
+    console.log(pathArray)
+    if (pathArray[1] === "random"){
+      this.fetchRandomId()
+    }
+    if (pathArray[2] === "list"){
+      this.setState({
+        browseSelection: pathArray[1]
+      })
+    }
+    if (pathArray[1] === "id"){
+      this.setState({
+        dropdownSelection: "id"
+        ,formInput: pathArray[2]
+      })
+    }
+  }
+  
+
   componentDidMount = () =>{
-    //console.log(window)
-    this.setState({
-      browseSelection: localStorage.getItem("listName")
-      ,dropdownSelection: localStorage.getItem("dropdown")
-      ,formInput: localStorage.getItem("objectId")
-      ,path: window.location.pathname
-    })
+    
+
+    this.setStateFromUrl()
+
   }
   selectList = listName => {
     this.setState({
@@ -79,7 +98,7 @@ class App extends Component {
       })
   }
 
-  render(routerProps) {
+  render() {
   return (
     <Container fluid style={{ padding: 0 }} >
      
@@ -107,7 +126,7 @@ class App extends Component {
           />
           <Route path={`/objects/${this.state.dropdownSelection}/${this.state.formInput}`} 
               render={() => {
-                  if(this.state.dropdownSelection == "id"){
+                  if(this.state.dropdownSelection === "id"){
                     return  <Object url={url} id={this.state.formInput} />
                   }
                   else{
