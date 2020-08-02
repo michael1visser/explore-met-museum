@@ -90,7 +90,7 @@ export class Object extends Component {
             }
             })
             if(this.state.artistReady === true) {
-            return( <div>
+            return( <div >
                 {this.state.artistGender !== "" ? <p>Gender: {this.state.artistGender}</p> : null}
                 {this.state.artistNationality !== "" ?<p>Nationality: {this.state.artistNationality}</p> : null}
                 {this.state.artistBirthDate !== "" || this.state.artistBirthDate !== null ? <p>DOB: {this.state.artistBirthDate}</p> : null}
@@ -127,7 +127,7 @@ export class Object extends Component {
     render() {
         if (this.state.ready == true){
             return (
-                <Container className="justify-content-center">
+                <Container className="justify-content-center" style={{marginTop: 20, height: "90vh", overflow: "scroll"}}>
                     <Row className="justify-content-center">
                         <Col>
                             <Row className="justify-content-center">                        

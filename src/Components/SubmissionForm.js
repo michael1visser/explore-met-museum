@@ -116,10 +116,10 @@ export class AddNewForm extends Component {
 
     render() {
         if (this.state.success !== true){
-        return (<div>
+        return (<div style={{ width: "60%", marginLeft: 20}}>
             {this.formType()}
             <Form>
-                <Form.Control as="select" id="basic-nav-dropdown" name="type" onChange={this.setFormType}>
+                <Form.Control size="sm" as="select" id="basic-nav-dropdown" name="type" onChange={this.setFormType}>
                     <option>Select One</option>
                     <option value="objects">Object</option>
                     <option value="artists">Artist</option>

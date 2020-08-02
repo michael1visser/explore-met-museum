@@ -12,15 +12,15 @@ export class ArtistForm extends Component {
 
     setType = () =>{
         if (this.props.method === "POST"){
-            return <h3>Please enter the details of the item to add?</h3>
+            return <h4>Please enter the details of the item to add?</h4>
         }
         if (this.props.method === "PUT"){
-            return (<div> <h3>Please enter the details of the item to update?</h3>
+            return (<div> <h4>Please enter the details of the item to update?</h4>
             <Form.Control type="input" placeholder="ID (required)" name="_id" onChange={this.inputChange} />
             </div>)
         }
         if (this.props.method === "DELETE"){
-            return (<div> <h3>Please enter the ID of the item to delete?</h3>
+            return (<div> <h4>Please enter the ID of the item to delete?</h4>
             <Form.Control type="input" placeholder="ID (required)" name="_id" onChange={this.inputChange} />
             </div>)
         }
@@ -30,12 +30,12 @@ export class ArtistForm extends Component {
     setForm = () => {
         if (this.props.method !== "DELETE"){
             return ( <div>
-                <Form.Control type="input" placeholder="Name" name="name" onChange={this.inputChange} />
-                <Form.Control type="input" placeholder="Gender" name="gender" onChange={this.inputChange} />
-                <Form.Control type="input" placeholder="Nationality" name="nationality" onChange={this.inputChange} />
-                <Form.Control type="input" placeholder="Birth Date" name="birthDate" onChange={this.inputChange} />
-                <Form.Control type="input" placeholder="Death Date" name="deathDate" onChange={this.inputChange} />
-                <Form.Control type="input" placeholder="Bio" name="bio" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Name" name="name" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Gender" name="gender" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Nationality" name="nationality" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Birth Date" name="birthDate" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Death Date" name="deathDate" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Bio" name="bio" onChange={this.inputChange} />
             </div>)
         }
     }

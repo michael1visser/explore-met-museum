@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container, Row, Col} from 'react-bootstrap'
 
-import TopNav from './Components/Navbar'
+import Navbar from './Components/Navbar'
 import Sidebar from './Components/Sidebar'
 import Object from './Components/Object'
 import Home from './Components/Home'
@@ -81,16 +81,17 @@ class App extends Component {
 
   render(routerProps) {
   return (
-    <Container fluid >
+    <Container fluid style={{ padding: 0 }} >
      
       <Row noGutters className="row-bottom-margin"> 
-        <Col row-bottom-margin >
-          <TopNav dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
+        <Col row-bottom-margin="true" >
+          <Navbar dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
         </Col>
       </Row>
-      <Row noGutters>
+      <Row noGutters >
         <Col xs="2" >
-        <Sidebar selectList={this.selectList} setId={this.fetchRandomId} />
+        <Sidebar selectList={this.selectList} setId={this.fetchRandomId} 
+        />
         </Col>
         <Col >
           <Route path="/"

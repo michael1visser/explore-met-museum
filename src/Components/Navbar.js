@@ -9,7 +9,7 @@ function TopNav(props){
 
 
     return(
-            <Navbar>
+            <Navbar className="justify-content-between">
                 <style type="text/css">
                     {`
                     .navbar {
@@ -18,7 +18,7 @@ function TopNav(props){
                     }
                     `}
                 </style>
-                <Navbar.Brand>Met Museum</Navbar.Brand>
+                <Navbar.Brand><h2>Met Museum</h2></Navbar.Brand>
                 
                 <SearchForm sendInput={props.sendInput}/>
                 
