@@ -31,44 +31,24 @@ export class AddNewForm extends Component {
 
     successDisplay = () => {
         if (this.props.method === "POST"){
-            return <div>
+            return <div style={{margin: 20}}>
             <h3>Success! The new item ID is {this.state.newId}</h3>
-            <Button type="button" onClick={this.resetPage}>Submit Another New Item</Button>
+            <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="button" onClick={this.resetPage}>Submit Another New Item</Button>
             </div>
         }
         if (this.props.method === "PUT"){
-            return <div>
+            return <div style={{margin: 20}}>
             <h3>Success! Item {this.state.newId} has been updated.</h3>
-            <Button type="button" onClick={this.resetPage}>Submit Another Update</Button>
+            <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="button" onClick={this.resetPage}>Submit Another Update</Button>
             </div>
         }
         if (this.props.method === "DELETE"){
-            return <div>
+            return <div style={{margin: 20}}>
             <h3>Success! Item {this.state.newId} has been deleted.</h3>
-            <Button type="button" onClick={this.resetPage}>Delete Another Item</Button>
+            <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="button" onClick={this.resetPage}>Delete Another Item</Button>
             </div>
         }
     }
-
- /*    submitForm = (e, input) =>{
-        e.preventDefault()
-        const options = {
-            "method": "POST"
-            ,"headers" : { "Content-Type" : "application/json"}
-            ,body: JSON.stringify(input)
-        }
-
-        fetch(`https://met-museum-api.herokuapp.com/${this.state.type}`, options)
-            .then(res => res.json())
-            .then(res =>{
-                console.log(res)
-                this.setState({
-                    newId: res._id
-                    ,success: true
-                })
-              
-            })
-    } */
 
     setFormType = e =>{
         e.preventDefault()
@@ -76,13 +56,6 @@ export class AddNewForm extends Component {
             type: e.target.value
         })
     }
-
-  /*   inputChange = e =>{
-        //console.log(e.target.value)
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    } */
 
     resetPage = () => {
         console.log("fired")

@@ -77,7 +77,7 @@ export class ArtistForm extends Component {
             <Form onSubmit={this.submitForm}>
                 {this.setType()}
                 {this.setForm()}
-                <Button type="submit" >Submit</Button>
+                <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="submit" >Submit</Button>
             </Form>
         )
     }

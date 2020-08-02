@@ -106,7 +106,7 @@ export class ObjectForm extends Component {
             <Form onSubmit={this.checkImages}>
                 {this.setType()}
                 {this.setForm()}
-                <Button type="submit" >Submit</Button>
+                <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="submit" >Submit</Button>
             </Form>
         )
     }

@@ -48,11 +48,9 @@ class App extends Component {
   
 
   componentDidMount = () =>{
-    
-
     this.setStateFromUrl()
-
   }
+  
   selectList = listName => {
     this.setState({
       browseSelection: listName
@@ -78,12 +76,6 @@ class App extends Component {
       ,dropdownSelection: optional
     })
   }
-  }
-
-  setObjectId = id => {
-    this.setState({
-      objectId: id
-    })
   }
 
   fetchRandomId = () => {
