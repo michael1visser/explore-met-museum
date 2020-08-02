@@ -3,14 +3,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container, Row, Col} from 'react-bootstrap'
 
-import Navbar from './Components/Navbar'
-import Sidebar from './Components/Sidebar'
-import Object from './Components/Object'
-import Home from './Components/Home'
+import Navbar from './Components/Layout/Navbar'
+import Sidebar from './Components/Layout/Sidebar'
+import Object from './Components/Objects/Object'
+import Home from './Components/Layout/Home'
 import {Route} from 'react-router-dom'
 import FieldList from './Components/FieldList'
-import ObjectList from './Components/ObjectList'
-import SubmissionForm from './Components/SubmissionForm';
+import ObjectList from './Components/Objects/ObjectList'
+import SubmissionForm from './Components/Forms/SubmissionForm';
 
 let url = "https://met-museum-api.herokuapp.com"
 
@@ -30,7 +30,6 @@ class App extends Component {
   setStateFromUrl = () =>{
     let pathArray = this.path.split('/')
     pathArray = pathArray.filter(val => (val !== ""))
-    console.log(pathArray)
     if (pathArray[1] === "random"){
       this.fetchRandomId()
     }

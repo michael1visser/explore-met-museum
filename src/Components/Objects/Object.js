@@ -128,6 +128,9 @@ export class Object extends Component {
                     <Row className="justify-content-center">
                         <Col>
                             <Row className="justify-content-center">                        
+                                <h6>Object ID: {this.state.id}</h6>
+                            </Row>
+                            <Row className="justify-content-center">                        
                                 <h3>{this.state.title}</h3>
                             </Row>
                             <Row className="justify-content-center">
