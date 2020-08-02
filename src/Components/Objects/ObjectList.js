@@ -19,7 +19,7 @@ export class ObjectList extends Component {
                 this.setState({
                     objects: res
                     ,ready: true
-                }/* , () => {this.displayObjectList()} */)
+                })
             })
 
     }
@@ -33,7 +33,6 @@ export class ObjectList extends Component {
         return list
     }
     componentDidMount = () =>{
-        //let objectList = ""
         if (this.props.input !== ""){
             this.input = this.props.input
             this.dropdown = this.props.dropdown
@@ -42,7 +41,6 @@ export class ObjectList extends Component {
         else {
             this.input = localStorage.getItem("formInput")
             this.dropdown = localStorage.getItem("dropdown")
-            //objectList = localStorage.getItem("objectList")
         }
         this.fetchData()
         localStorage.setItem("formInput", `${this.props.input}`)

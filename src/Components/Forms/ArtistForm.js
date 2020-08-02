@@ -41,7 +41,6 @@ export class ArtistForm extends Component {
     }
 
     inputChange = e =>{
-        //console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -64,7 +63,6 @@ export class ArtistForm extends Component {
         fetch(url, options)
         .then(res => res.json())
         .then(res =>{
-            //console.log(res)
             this.props.onSuccess({
                 newId: res._id
                 ,success: true

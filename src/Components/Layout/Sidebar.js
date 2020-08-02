@@ -15,9 +15,9 @@ function Sidebar(props) {
                 <Nav.Link as={Link} to="/objects/culture/list" onClick={() => props.selectList("culture")}>Cultures</Nav.Link>
                 
                 <h4 style={{ textDecoration: "underline" }}>Advanced</h4>
-                <Nav.Link as={Link} to="/new/" /* onClick={() => props.setId()} */>Add New Object or Artist</Nav.Link>
-                <Nav.Link as={Link} to="/update" /* onClick={() => props.setId()} */>Update an Object or Artist</Nav.Link>
-                <Nav.Link as={Link} to="/delete" /* onClick={() => props.setId()} */>Delete an Object or Artist</Nav.Link>
+                <Nav.Link as={Link} to="/new/" >Add New Object or Artist</Nav.Link>
+                <Nav.Link as={Link} to="/update" >Update an Object or Artist</Nav.Link>
+                <Nav.Link as={Link} to="/delete" >Delete an Object or Artist</Nav.Link>
                 </Nav.Item>
         </Nav>
     )
