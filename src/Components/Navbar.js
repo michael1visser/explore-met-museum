@@ -9,7 +9,15 @@ function TopNav(props){
 
 
     return(
-            <Navbar bg="light">
+            <Navbar>
+                <style type="text/css">
+                    {`
+                    .navbar {
+                        background-color: #B85954;
+                        margin: 0, auto;
+                    }
+                    `}
+                </style>
                 <Navbar.Brand>Met Museum</Navbar.Brand>
                 
                 <SearchForm sendInput={props.sendInput}/>

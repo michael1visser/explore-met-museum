@@ -12,6 +12,8 @@ export class List extends Component {
 
     componentDidMount(){
         let listName = ""
+        let path = window.location.pathname
+        //console.log(path)
         if (this.props.listName !== ""){
             listName = this.props.listName
         }
@@ -25,6 +27,8 @@ export class List extends Component {
                     items: res
                 })
             })
+
+            localStorage.setItem("listName", `${this.props.listName}`)
 
     }
 

@@ -38,7 +38,7 @@ export class SearchForm extends Component {
                     <option>Select an area to Search</option>
                     <option value="id">Object ID</option>
                     <option value="department">Departments</option>
-                    <option value="media">Media</option>
+                    <option value="medium">Media</option>
                     <option value="category">Categories</option>
                     <option value="culture">Cultures</option>
                 </Form.Control>

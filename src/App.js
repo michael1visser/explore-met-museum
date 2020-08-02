@@ -10,6 +10,7 @@ import Home from './Components/Home'
 import {Route, Link} from 'react-router-dom'
 import FieldList from './Components/FieldList'
 import ObjectList from './Components/ObjectList'
+import SubmissionForm from './Components/SubmissionForm';
 
 let url = "https://met-museum-api.herokuapp.com"
 
@@ -21,9 +22,19 @@ class App extends Component {
       ,dropdownSelection: ""
       ,formInput: ""
       ,objectId: ""
+      ,path: ""
     }
   }
 
+  componentDidMount = () =>{
+    //console.log(window)
+    this.setState({
+      browseSelection: localStorage.getItem("listName")
+      ,dropdownSelection: localStorage.getItem("dropdown")
+      ,formInput: localStorage.getItem("objectId")
+      ,path: window.location.pathname
+    })
+  }
   selectList = listName => {
     this.setState({
       browseSelection: listName
@@ -36,11 +47,19 @@ class App extends Component {
     })
   }
 
-  setFormSelection = input =>{
+  setFormSelection = (input, optional) =>{
+    if (input.input !== undefined){
     this.setState({
       dropdownSelection: input.dropdown
       ,formInput: input.input
     })    
+  }
+  else {
+    this.setState({
+      formInput: input
+      ,dropdownSelection: optional
+    })
+  }
   }
 
   setObjectId = id => {
@@ -63,31 +82,47 @@ class App extends Component {
   render(routerProps) {
   return (
     <Container fluid >
-      <Row className="App-header">
-        <Col>
-          <TopNav dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} /* routerProps={routerProps} */ />
+     
+      <Row noGutters className="row-bottom-margin"> 
+        <Col row-bottom-margin >
+          <TopNav dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
         </Col>
       </Row>
-      <Row>
-        <Col xs="2" id="sidebar">
+      <Row noGutters>
+        <Col xs="2" >
         <Sidebar selectList={this.selectList} setId={this.fetchRandomId} />
         </Col>
         <Col >
           <Route path="/"
             component={Home}
             exact />
-          <Route path ={`/objects/${this.state.browseSelection}`} 
+          <Route path ={`/objects/${this.state.browseSelection}/list`} 
             render={() => <FieldList listName={this.state.browseSelection} url={url} />}
-            exact
+      
           />
-          <Route path="/objects/random"
+          <Route path={`/objects/random`}
             render={() => <Object url={url} id={this.state.objectId} />} 
             exact
           />
-          <Route path={`/objects/id/${this.state.formInput}`}
-            render={() => <Object url={url} id={this.state.formInput} />} 
-            exact
-          />
+          <Route path={`/objects/${this.state.dropdownSelection}/${this.state.formInput}`} 
+              render={() => {
+                  if(this.state.dropdownSelection == "id"){
+                    return  <Object url={url} id={this.state.formInput} />
+                  }
+                  else{
+                    return <ObjectList url={url} dropdown={this.state.dropdownSelection} input={this.state.formInput} setId={this.setFormSelection} />
+                }
+              }
+            }/> 
+            <Route path="/new"
+            render={() => <SubmissionForm  method="POST"/>}
+            />
+            <Route path="/update"
+            render={() => <SubmissionForm  method="PUT"/>}
+            />
+            <Route path="/delete"
+            render={() => <SubmissionForm  method="DELETE" />}
+            />
         </Col>
       </Row>
     </Container>

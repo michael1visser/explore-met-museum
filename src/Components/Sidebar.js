@@ -5,16 +5,27 @@ import Nav from 'react-bootstrap/Nav'
 function Sidebar(props) {
     return (
         <Nav>
+            <style type="text/css">
+                    {`
+                    .nav {
+                        background-color: #B85954;
+                        margin: 0, auto;
+                    }
+                    `}
+                </style>
             <Nav.Item>
                 <h3>Browse Collection</h3>
                 
                 <Nav.Link as={Link} to="/objects/random" onClick={() => props.setId()}>Random Object</Nav.Link>
-                <Nav.Link as={Link} to="/objects/department" onClick={() => props.selectList("department")}>Departments</Nav.Link>
-                <Nav.Link as={Link} to="/objects/medium" onClick={() => props.selectList("medium")}>Media</Nav.Link>
-                <Nav.Link as={Link} to="/objects/category" onClick={() => props.selectList("category")}>Categories</Nav.Link>
-                <Nav.Link as={Link} to="/objects/culture" onClick={() => props.selectList("culture")}>Cultures</Nav.Link>
+                <Nav.Link as={Link} to="/objects/department/list" onClick={() => props.selectList("department")}>Departments</Nav.Link>
+                <Nav.Link as={Link} to="/objects/medium/list" onClick={() => props.selectList("medium")}>Media</Nav.Link>
+                <Nav.Link as={Link} to="/objects/category/list" onClick={() => props.selectList("category")}>Categories</Nav.Link>
+                <Nav.Link as={Link} to="/objects/culture/list" onClick={() => props.selectList("culture")}>Cultures</Nav.Link>
                 
                 <h3>Advanced</h3>
+                <Nav.Link as={Link} to="/new/" /* onClick={() => props.setId()} */>Add New Object or Artist</Nav.Link>
+                <Nav.Link as={Link} to="/update" /* onClick={() => props.setId()} */>Update an Object or Artist</Nav.Link>
+                <Nav.Link as={Link} to="/delete" /* onClick={() => props.setId()} */>Delete an Object or Artist</Nav.Link>
                 </Nav.Item>
         </Nav>
     )
