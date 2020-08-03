@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   height: 100%;
@@ -12,7 +13,7 @@
 }
 .container-fluid {
   height: 100%;
-  background-color: #f5eba5;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
 
@@ -23,6 +24,9 @@
 
 .row-bottom-margin {
   margin-bottom: 0px;
+  background-image: url(/src/images/met.jpg);
+  background-size: cover;
+  background-position: center;
 
 }
 
@@ -37,16 +41,16 @@
 } */
 
 .nav-item {
-  color: #f5eba5;
+  color: #333333;
   text-align: center;
   justify-content: center;
   align-items: flex-start;
 }
 .nav-item a {
-  color: #f5eba5;
+  color: #414040;
 }
 .nav-item a:hover {
-  color: #ffffff;
+  color: #303030;
   font-size: larger;
   font-weight: 700;
 }

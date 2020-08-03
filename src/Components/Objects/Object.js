@@ -151,14 +151,14 @@ export class Object extends Component {
                             <Row className="justify-content-center">
                                 {this.state.artist !== "" && this.state.artist !== undefined ? 
                                     <Accordion >
-                                        <Card style={{backgroundColor: "#B85954"}}>
+                                        <Card style={{backgroundColor: "#F5F5F5"}}>
                                             <Card.Header >
-                                                <Accordion.Toggle style={{backgroundColor: "#f5eba5"}} as={Card.Header} variant="link" eventKey="0">
+                                                <Accordion.Toggle style={{backgroundColor: "#DFE1E3"}} as={Card.Header} variant="link" eventKey="0">
                                                 <h5>Artist: {this.state.artist}</h5>
                                                 </Accordion.Toggle >
                                             </Card.Header>        
                                             <Accordion.Collapse eventKey="0">
-                                                <Card.Body style={{color: "#f5eba5"}}>{this.fetchArtistInfo()}</Card.Body>
+                                                <Card.Body style={{color: "#333333"}}>{this.fetchArtistInfo()}</Card.Body>
                                             </Accordion.Collapse>                        
                                         </Card>
                                     </Accordion>

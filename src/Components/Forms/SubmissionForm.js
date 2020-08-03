@@ -33,19 +33,19 @@ export class AddNewForm extends Component {
         if (this.props.method === "POST"){
             return <div style={{margin: 20}}>
             <h3>Success! The new item ID is {this.state.newId}</h3>
-            <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="button" onClick={this.resetPage}>Submit Another New Item</Button>
+            <Button style={{marginTop: 20, backgroundColor: "#F5F5F5", color: "#333333", border: "none"}} type="button" onClick={this.resetPage}>Submit Another New Item</Button>
             </div>
         }
         if (this.props.method === "PUT"){
             return <div style={{margin: 20}}>
             <h3>Success! Item {this.state.newId} has been updated.</h3>
-            <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="button" onClick={this.resetPage}>Submit Another Update</Button>
+            <Button style={{marginTop: 20, backgroundColor: "#F5F5F5", color: "#333333", border: "none"}} type="button" onClick={this.resetPage}>Submit Another Update</Button>
             </div>
         }
         if (this.props.method === "DELETE"){
             return <div style={{margin: 20}}>
             <h3>Success! Item {this.state.newId} has been deleted.</h3>
-            <Button style={{marginTop: 20, backgroundColor: "#B85954", border: "none"}} type="button" onClick={this.resetPage}>Delete Another Item</Button>
+            <Button style={{marginTop: 20, backgroundColor: "#F5F5F5", color: "#333333", border: "none"}} type="button" onClick={this.resetPage}>Delete Another Item</Button>
             </div>
         }
     }
@@ -91,7 +91,7 @@ export class AddNewForm extends Component {
         if (this.state.success !== true){
         return (<div style={{ width: "60%", marginLeft: 20}}>
             {this.formType()}
-            <Form>
+            <Form style={{marginBottom: 10}}>
                 <Form.Control size="sm" as="select" id="basic-nav-dropdown" name="type" onChange={this.setFormType}>
                     <option>Select One</option>
                     <option value="objects">Object</option>

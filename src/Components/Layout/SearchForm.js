@@ -45,7 +45,7 @@ export class SearchForm extends Component {
                     <option value="culture">Cultures</option>
                 </Form.Control>
                 <Form.Control style={{margin: 5} } size="sm" type="input" onChange={this.inputChange} />
-                <Button style={{margin: 10, backgroundColor: "#f5eba5", color: "#000000", border: "none"}} size="sm" type="submit" >Search</Button>
+                <Button style={{margin: 10, backgroundColor: "#F5F5F5", color: "#333333", border: "none"}} size="sm" type="submit" >Search</Button>
             </Form>
         )
     }
