@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/explore-met-museum/precache-manifest.0ca977b055232737e6048378f617c2f6.js"
+  "/explore-met-museum/precache-manifest.bbb73af285a7d6b5910b13e059935a54.js"
 );
 
 self.addEventListener('message', (event) => {
