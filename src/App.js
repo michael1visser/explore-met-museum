@@ -47,9 +47,9 @@ class App extends Component {
   }
   
 
-  componentDidMount = () =>{
+  /* componentDidMount = () =>{
     this.setStateFromUrl()
-  }
+  } */
   
   selectList = listName => {
     this.setState({
