@@ -7,36 +7,15 @@ import ImageGallery from './ImageGallery'
 export class Object extends Component {
     constructor(props){
         super(props)
-        this.state = {
-            id: ""
-            ,featured: null
-            ,yearAcquired: ""
-            ,isPublicDomain: null
-            ,primaryImage: ""
-            ,primaryImageSmall: ""
-            ,additionalImages: []
-            ,department: ""
-            ,objectType: ""
-            ,title: ""
-            ,culture: ""
-            ,period: ""
-            ,artist: ""
-            ,dateCreated: ""
-            ,medium: ""
-            ,dimensions: ""
-            ,country: ""
-            ,category: ""
-            ,rights: ""
-            ,infoLink: ""
-            ,ready: false
-        }
-        
+        this.state = { }
+        this.mounted = false
     }
 
     fetchObject = (id) => {
                 fetch(`${this.props.url}/objects/id/${id}`)
                     .then(res => res.json())
                     .then(res =>{
+                        if (this.mounted) {
                         this.setState({
                             id: res._id
                             ,featured: res.featured
@@ -59,13 +38,8 @@ export class Object extends Component {
                             ,rights: res.rights
                             ,infoLink: res.infoLink
                             ,ready: true
-                            ,artistBio: ""
-                            ,artistNationality: ""
-                            ,artistBirthDate: ""
-                            ,artistDeathDate: ""
-                            ,artistGender: ""
-                            ,artistReady: false
                         })
+                    }
                     })
 
          
@@ -75,7 +49,7 @@ export class Object extends Component {
           fetch(`${this.props.url}/artists/name/${this.state.artist}`)
             .then(res => res.json())
             .then(res =>{
-                if (res[0] !== undefined){
+                if (res[0] !== undefined && this.mounted){
                 this.setState({
                     artistBio: res[0].bio
                     ,artistNationality: res[0].nationality
@@ -99,6 +73,7 @@ export class Object extends Component {
       }
 
     componentDidMount = () =>{
+        this.mounted = true
         let objectId = ""
         if(this.props.id !== ""){
             objectId = this.props.id
@@ -118,6 +93,10 @@ export class Object extends Component {
             localStorage.setItem("objectId", `${this.props.id}`)
             localStorage.setItem("dropdown","id" )
         }
+    }
+    
+    componentWillUnmount = () => {
+        this.mounted = false
     }
     
     

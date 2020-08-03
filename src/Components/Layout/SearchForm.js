@@ -28,9 +28,8 @@ export class SearchForm extends Component {
     submitForm = (e)=> {
         e.preventDefault()
         if (this.state.dropdown !== "" && this.state.input !== ""){
-        console.log(this.state.input)
-        this.props.sendInput(this.state)
-        this.props.history.push(`/objects/${this.state.dropdown}/${this.state.input}`)
+            this.props.sendInput(this.state)
+            this.props.history.push(`/objects/${this.state.dropdown}/${this.state.input}`)
         }
         else {alert("Please select an area from the dropdown and enter the name of the section you would like to search.")}
     }
