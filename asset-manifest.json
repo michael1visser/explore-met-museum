@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.9e6f0077.chunk.css",
-    "main.js": "/static/js/main.10fd7001.chunk.js",
-    "main.js.map": "/static/js/main.10fd7001.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.0ecac886.js",
-    "runtime-main.js.map": "/static/js/runtime-main.0ecac886.js.map",
-    "static/css/2.af3c1da9.chunk.css": "/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.56b385ed.chunk.js": "/static/js/2.56b385ed.chunk.js",
-    "static/js/2.56b385ed.chunk.js.map": "/static/js/2.56b385ed.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.dc0dd3c6bc9f65a9fc7f25e9898d7934.js": "/precache-manifest.dc0dd3c6bc9f65a9fc7f25e9898d7934.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.af3c1da9.chunk.css.map": "/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.9e6f0077.chunk.css.map": "/static/css/main.9e6f0077.chunk.css.map",
-    "static/js/2.56b385ed.chunk.js.LICENSE.txt": "/static/js/2.56b385ed.chunk.js.LICENSE.txt",
-    "static/media/met.jpg": "/static/media/met.7b96e817.jpg"
+    "main.css": "/explore-met-museum/static/css/main.9e6f0077.chunk.css",
+    "main.js": "/explore-met-museum/static/js/main.4c36503d.chunk.js",
+    "main.js.map": "/explore-met-museum/static/js/main.4c36503d.chunk.js.map",
+    "runtime-main.js": "/explore-met-museum/static/js/runtime-main.06cedc7f.js",
+    "runtime-main.js.map": "/explore-met-museum/static/js/runtime-main.06cedc7f.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/explore-met-museum/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.56b385ed.chunk.js": "/explore-met-museum/static/js/2.56b385ed.chunk.js",
+    "static/js/2.56b385ed.chunk.js.map": "/explore-met-museum/static/js/2.56b385ed.chunk.js.map",
+    "index.html": "/explore-met-museum/index.html",
+    "precache-manifest.1ea1839eec8749a83ed2bde255384b83.js": "/explore-met-museum/precache-manifest.1ea1839eec8749a83ed2bde255384b83.js",
+    "service-worker.js": "/explore-met-museum/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/explore-met-museum/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.9e6f0077.chunk.css.map": "/explore-met-museum/static/css/main.9e6f0077.chunk.css.map",
+    "static/js/2.56b385ed.chunk.js.LICENSE.txt": "/explore-met-museum/static/js/2.56b385ed.chunk.js.LICENSE.txt",
+    "static/media/met.jpg": "/explore-met-museum/static/media/met.7b96e817.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0ecac886.js",
+    "static/js/runtime-main.06cedc7f.js",
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.56b385ed.chunk.js",
     "static/css/main.9e6f0077.chunk.css",
-    "static/js/main.10fd7001.chunk.js"
+    "static/js/main.4c36503d.chunk.js"
   ]
 }
